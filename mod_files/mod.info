@@ -1,8 +1,8 @@
-name=Peek a View
+name=Peek a View (Continued)
 poster=poster.png
 icon=icon.png
 id=PeekAView
 description=Wall cutaway, tree fade, and stair view: brings more of what your character sees onto your screen.
-url=
+url=https://github.com/samuelcarlin037-ship-it/PeekAView
 require=ZombieBuddy
-modversion=1.4.4
+modversion=1.4.5

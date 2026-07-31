@@ -284,7 +284,8 @@ public class Patch_IsoCell {
     // climb stays visible instead of snapping to opaque on cone
     // exit. Stencil is additive via GL_REPLACE with ref 128.
     @Patch(className = "zombie.iso.IsoCell",
-           methodName = "DrawStencilMask")
+           methodName = "drawStencilMask",
+           strictMatch = true)
     public static class Patch_DrawStencilMask {
 
         @Patch.OnExit

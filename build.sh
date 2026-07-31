@@ -62,13 +62,31 @@ JAR="$JDK_DIR/bin/jar.exe"
 rm -rf "$BUILD_DIR"
 mkdir -p "$CLASSES_DIR"
 
+# Windows/MSYS: la lista di path separata da ";" non viene convertita
+# automaticamente, quindi javac.exe riceverebbe path stile /c/... e non
+# troverebbe i jar. Convertiamo esplicitamente con cygpath.
+if command -v cygpath >/dev/null 2>&1; then
+    CLASSPATH_ARG="$(cygpath -w "$PZ_JAR");$(cygpath -w "$ZB_JAR")"
+else
+    CLASSPATH_ARG="$PZ_JAR:$ZB_JAR"
+fi
+
+# Windows/MSYS: la lista di path separata da ";" non viene convertita
+# automaticamente, quindi javac.exe riceverebbe path stile /c/... e non
+# troverebbe i jar. Convertiamo esplicitamente con cygpath.
+if command -v cygpath >/dev/null 2>&1; then
+    CLASSPATH_ARG="$(cygpath -w "$PZ_JAR");$(cygpath -w "$ZB_JAR")"
+else
+    CLASSPATH_ARG="$PZ_JAR:$ZB_JAR"
+fi
+
 # --- Compile ---
 echo "[build] Compiling..."
 mapfile -t SOURCES < <(find "$SRC_DIR" -name '*.java')
 
 "$JAVAC" \
     --release 17 \
-    -classpath "$PZ_JAR;$ZB_JAR" \
+    -classpath "$CLASSPATH_ARG" \
     -d "$CLASSES_DIR" \
     "${SOURCES[@]}"
 

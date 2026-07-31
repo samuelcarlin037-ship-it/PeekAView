@@ -1,6 +1,6 @@
 version=1
-id=3710281407
-title=[B42] Peek a View
+id=
+title=[B42] Peek a View (Continued)
 description=[h1]Expand your vision[/h1]
 description=
 description=Project Zomboid hides a lot of what's actually visible to your character behind walls, trees, and floors above. PeekAView extends three rendering passes so your screen catches up with your character's eyes. Three independent features:
@@ -20,7 +20,7 @@ description=Options → Mods → Peek a View, four sections: Global, Wall cutawa
 description=
 description=[h1]Requirements[/h1]
 description=[list]
-description=[*]PZ Build 42.13 or later
+description=[*]PZ Build 42.20 or later
 description=[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3619862853]ZombieBuddy[/url], one-time install for any Java mod
 description=[/list]
 description=
@@ -47,15 +47,18 @@ description=
 description=[b]Does it affect performance?[/b]
 description=Several caches keep the runtime cost close to vanilla. Standing still and walking on foot are the cheapest paths. Lower the range sliders if your hardware struggles.
 description=
-description=[h1]Maintenance & Source[/h1]
-description=This mod is feature-complete for my use and no longer actively developed. Last tested against PZ build 42.18.
+description=[h1]About this fork[/h1]
+description=This is a maintained continuation of [b]Peek a View[/b] by [b]armakupub[/b], whose original Workshop item is no longer available. The original is MIT-licensed and its author explicitly stated that forks and improvements are welcome and encouraged, and that a broken version would be removed rather than left up.
 description=
-description=PeekAView is MIT-licensed and fully open source. The patches only touch specific PZ rendering classes. Forks and improvements are welcome and encouraged. If a maintained successor appears, I'll link to it here.
+description=Nothing here is claimed as original work: all credit for the design and implementation goes to armakupub and to the Staircast lineage below. This fork exists to keep the mod working on current Project Zomboid builds.
+description=
+description=Updated for [b]PZ Build 42.20[/b] (stable).
 description=[list]
-description=[*][b]PeekAView[/b]: [url=https://github.com/armakupub/PeekAView]github.com/armakupub/PeekAView[/url]
+description=[*][b]Original[/b]: [url=https://github.com/armakupub/PeekAView]github.com/armakupub/PeekAView[/url] (MIT, archived)
+description=[*][b]This fork[/b]: [url=https://github.com/samuelcarlin037-ship-it/PeekAView]github.com/samuelcarlin037-ship-it/PeekAView[/url] (MIT)
 description=[/list]
 description=
-description=Issues and PRs will be read but I can't promise response times. If the mod breaks in a future PZ version and I'm not going to fix it, I'll remove it from the Workshop rather than leave a broken version up.
+description=If armakupub wants this taken down, it comes down, no questions asked.
 description=
 description=[h1]Attribution[/h1]
 description=[list]
@@ -66,7 +69,6 @@ description=[/list]
 description=
 description=[hr][/hr]
 description=
-description=Workshop ID: 3710281407
 description=Mod ID: PeekAView
 tags=Build 42;Balance;Multiplayer;Realistic;QoL
-visibility=public
+visibility=private

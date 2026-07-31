@@ -1,6 +1,24 @@
 Peek a View - Changelog
 =======================
 
+1.4.5 - 2026-07-31  (fork: continuazione manutenuta)
+  - Compatibilita' con PZ Build 42.20 (stable). Il rework di illuminazione e
+    rendering ha lasciato intatti tutti i target @Patch tranne uno: IsoCell
+    .DrawStencilMask e' stato rinominato in drawStencilMask ed esiste ora in
+    due overload (pubblica no-arg + privata a 5 argomenti). Aggiornato con
+    strictMatch per agganciare solo la pubblica.
+  - Il meccanismo dello stencil in 42.20 registra le aree disegnate in
+    IsoCell.stencilAreas, consultate da isInStencil() dentro
+    CullFullyOccludedSquares. Comportamento dell'estensione di copertura in
+    valutazione.
+  - Il fix adiacenza B42 ("Fix B42 Wall-Hiding Bug") non sembra piu'
+    necessario su 42.20 nei test preliminari. Mantenuto attivo per prudenza,
+    in attesa di conferma su partite lunghe con geometria player-built.
+  - build.sh: il classpath viene ora convertito con cygpath su Windows/MSYS.
+    Senza, javac.exe riceveva path stile /c/... e non trovava i jar.
+  - Aggiunto check_targets.sh: verifica via javap che tutti i target @Patch e
+    i campi letti in reflection esistano nel projectzomboid.jar corrente.
+
 1.4.4 - 2026-05-14
   - Fixed WalkTo glitch for my friend 爱看歌剧的长颈鹿.
 
