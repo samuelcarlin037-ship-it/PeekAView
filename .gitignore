@@ -18,3 +18,7 @@ STEAM_COMMENT_TEASER.md
 *.iml
 .DS_Store
 Thumbs.db
+*.zip
+*.orig
+build.local
+
