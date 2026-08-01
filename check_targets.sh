@@ -38,7 +38,7 @@ TARGETS=(
   "zombie.iso.fboRenderChunk.FBORenderCutaways cutawayVisit"
   "zombie.iso.fboRenderChunk.FBORenderCutaways\$OrphanStructures shouldCutaway isAdjacentToOrphanStructure"
   "zombie.iso.fboRenderChunk.FBORenderTrees init"
-  "zombie.iso.IsoCell GetSquaresAroundPlayerSquare DrawStencilMask update renderInternal doBuildingInternal"
+  "zombie.iso.IsoCell GetSquaresAroundPlayerSquare drawStencilMask update renderInternal doBuildingInternal"
   "zombie.iso.IsoWorld renderInternal"
   "zombie.iso.IsoMovingObject getX getY getZ getCurrentSquare"
   "zombie.iso.IsoObject getAlpha"

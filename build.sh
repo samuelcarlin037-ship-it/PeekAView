@@ -48,7 +48,7 @@ PZ_JAR="$PZ_DIR/projectzomboid.jar"
 ZB_JAR="$PZ_DIR/ZombieBuddy.jar"
 
 # Pick the Zulu JDK under tools/ (glob tolerates version bumps).
-JDK_DIR="$(ls -d "$PROJECT_ROOT"/tools/zulu*-win_x64 "$PROJECT_ROOT"/tools/zulu*-linux_x64 2>/dev/null | head -n 1)"
+JDK_DIR="$(ls -d "$PROJECT_ROOT"/tools/zulu*-win_x64 "$PROJECT_ROOT"/tools/zulu*-linux_x64 2>/dev/null | head -n 1 || true)"
 if [ -z "$JDK_DIR" ] && command -v javac >/dev/null 2>&1 && command -v jar >/dev/null 2>&1; then
     JDK_DIR="system"
     JAVAC="$(command -v javac)"
