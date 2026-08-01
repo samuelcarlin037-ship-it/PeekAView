@@ -42,21 +42,30 @@ if [ -z "${SKIP_PZ_CHECK:-}" ] && command -v tasklist >/dev/null 2>&1; then
     fi
 fi
 
-: "${MOD_INSTALL_ROOT:=$USERPROFILE/Zomboid/mods/PeekAView}"
+: "${MOD_INSTALL_ROOT:=${USERPROFILE:-$HOME}/Zomboid/mods/PeekAView}"
 
 PZ_JAR="$PZ_DIR/projectzomboid.jar"
 ZB_JAR="$PZ_DIR/ZombieBuddy.jar"
 
 # Pick the Zulu JDK under tools/ (glob tolerates version bumps).
-JDK_DIR="$(ls -d "$PROJECT_ROOT"/tools/zulu*-win_x64 2>/dev/null | head -n 1)"
-if [ -z "$JDK_DIR" ]; then
+JDK_DIR="$(ls -d "$PROJECT_ROOT"/tools/zulu*-win_x64 "$PROJECT_ROOT"/tools/zulu*-linux_x64 2>/dev/null | head -n 1)"
+if [ -z "$JDK_DIR" ] && command -v javac >/dev/null 2>&1 && command -v jar >/dev/null 2>&1; then
+    JDK_DIR="system"
+    JAVAC="$(command -v javac)"
+    JAR="$(command -v jar)"
+elif [ -z "$JDK_DIR" ]; then
     echo "[build] ERROR: no Zulu JDK found under $PROJECT_ROOT/tools/zulu*-win_x64" >&2
     echo "        Download a Zulu JDK 25 Windows x64 build from https://www.azul.com/downloads/" >&2
     echo "        and extract it into tools/ so that tools/zulu25.../bin/javac.exe exists." >&2
     exit 1
 fi
-JAVAC="$JDK_DIR/bin/javac.exe"
-JAR="$JDK_DIR/bin/jar.exe"
+if [ "$JDK_DIR" != "system" ]; then
+    if [ -x "$JDK_DIR/bin/javac.exe" ]; then
+        JAVAC="$JDK_DIR/bin/javac.exe"; JAR="$JDK_DIR/bin/jar.exe"
+    else
+        JAVAC="$JDK_DIR/bin/javac";     JAR="$JDK_DIR/bin/jar"
+    fi
+fi
 
 # --- Clean ---
 rm -rf "$BUILD_DIR"
